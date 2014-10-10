@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+    <div class="col-sm-4"><img ng-src="{{facebookPhoto}}" class="img-rounded"></div>
+    <div class="col-sm-8">
+    	<p><h4>{{user.firstname +' ' + user.lastname}}</h4></p>
+    	<span ng-dblclick="changeBio()">{{user.bio}}</span>
+
+  <form class="form-horizontal">
+   <div ng-hide="hasBio">
+    <div class="form-group">
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea" ng-model="newbio" placeholder="Hvem er du {{user.firstname}}?"></textarea>
+        <span class="help-block">Skriv litt om deg selv. Hva liker du? Hva synes du er spennende?</span>
+      </div>
+    </div>
+    </form>
+      <div class="col-lg-10">
+        <button type="submit" class="btn btn-primary" ng-click="setNewBio()">Lagre</button>
+      </div>
+      </div>
+    </div>
+    </div>
+
+
+</form>
+    </div>
+</div>
+  </div>
+</div>
