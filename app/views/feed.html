@@ -6,19 +6,37 @@
   <div class="col-md-3">
   	<div class="form-group">
   <label class="control-label" for="focusedInput">Hva skal vi diskutere?</label>
-  <input class="form-control" id="focusedInput" type="text" placeholder="Båter, matte, livet...">
+  <input class="form-control" id="focusedInput" type="text" placeholder="Katter, matte 1, livet..." ng-model="datepost.message">
 </div>
   </div>
+
   <div class="col-md-3">
   	<div class="form-group">
   <label class="control-label" for="focusedInput">Hvor skal vi?</label>
-  <input class="form-control" id="focusedInput" type="text" placeholder="Sted">
+  <input class="form-control" id="focusedInput" type="text" placeholder="Sted" ng-model="datepost.location">
 </div>
   </div>
-  <div class="col-md-3">.col-md-1</div>
-  <div class="col-md-3">.col-md-1</div>
+
+  <div class="col-md-3">
+  <form name="timepickerForm" role="form">
+	  	<div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
+	    <label class="control-label">Når skal vi?</label>
+	    <input type="text" placeholder="12:00" class="form-control" size="5" ng-model="datepost.datetime" data-time-format="HH:mm" data-time-type="iso" data-autoclose="1" name="time2" bs-timepicker>
+	  	</div>
+  </form>
+  </div>
+
+  <div class="col-md-3"><button ng-click="addPost()" class="btn btn-primary btn-lg" style="margin-top: 15px">Send inn</a>
+</div>
 
 </div>
 	  </div>
 	</div>
+
+<div ng-repeat="datepost in dateposts">
+	<div class="panel panel-default">
+  <div class="panel-body">
+  </div>
+</div>
+</div>	
 </div>

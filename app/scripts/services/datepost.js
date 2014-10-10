@@ -8,16 +8,27 @@
  * Factory in the kaffeAppApp.
  */
 angular.module('kaffeAppApp')
-  .factory('datepost', function () {
+  .factory('datepost', function ($http, $q) {
     // Service logic
     // ...
 
-    var meaningOfLife = 42;
+    var apibase = 'http://localhost:3000/api/'
 
     // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
+      addNewDatePost: function (datepost) {
+        var deferred = $q.defer();
+        $http.post(apibase + 'dateposts', datepost).success(function(response){
+          deferred.resolve(response);
+        })
+        return deferred.promise;
+      },
+      getDatePosts: function(){
+        var deferred = $q.defer();
+        $http.get(apibase + 'dateposts').success(function(dateposts){
+          deferred.resolve(dateposts);
+        })
+      return deferred.promise;
+      },
     };
   });

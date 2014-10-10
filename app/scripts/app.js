@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'mgcrea.ngStrap',
+    'mgcrea.ngStrap.helpers.dimensions',
+    'mgcrea.ngStrap.helpers.dateParser'
   ])
   .config(function ($routeProvider, $httpProvider) {
     $httpProvider.defaults.withCredentials = true;
