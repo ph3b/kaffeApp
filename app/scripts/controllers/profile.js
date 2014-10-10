@@ -29,7 +29,7 @@ angular.module('kaffeAppApp')
     	$scope.hasBio = true
     }
     $scope.changeBio = function(){
-    	$scope.tempBio = $scope.user.bio;
+    	$scope.newbio = $scope.user.bio;
     	$scope.hasBio = false;
     }
  

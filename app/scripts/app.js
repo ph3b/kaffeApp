@@ -84,6 +84,13 @@ angular
           loggedIn : checkLoggedIn
         }
       })
+      .when('/user/:id', {
+        templateUrl: 'views/user.html',
+        controller: 'UserCtrl',
+        resolve: {
+          loggedIn : checkLoggedIn
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

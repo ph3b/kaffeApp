@@ -14,7 +14,7 @@ angular.module('kaffeAppApp')
     return {
       getCurrentUser: function () {
         var deferred = $q.defer();
-        $http.get(apibase + 'user').success(function(user){
+        $http.get(apibase + 'currentuser').success(function(user){
           deferred.resolve(user);
         })
         return deferred.promise;
@@ -30,6 +30,13 @@ angular.module('kaffeAppApp')
         var deferred = $q.defer();
         $http.get(apibase + 'user/' + userid).success(function(fbId){
           deferred.resolve(fbId)
+        })
+        return deferred.promise;
+      },
+      getUser: function(userid){
+        var deferred = $q.defer();
+        $http.get(apibase + 'user/' + userid).success(function(user){
+          deferred.resolve(user)
         })
         return deferred.promise;
       }

@@ -8,7 +8,7 @@
  * Controller of the kaffeAppApp
  */
 angular.module('kaffeAppApp')
-  .controller('HeaderctrlCtrl', function ($scope, $location) {
+  .controller('HeaderctrlCtrl', function ($scope, $location, $rootScope) {
     $scope.showHeader = function(){
     	return $location.$$path !== '/';
     }
@@ -18,4 +18,5 @@ angular.module('kaffeAppApp')
     	}
     	return "";
     }
+    $rootScope.search = $scope.searchBox
   });

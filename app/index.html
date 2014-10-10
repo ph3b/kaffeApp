@@ -38,7 +38,7 @@
       <li class="{{isActive('/profile')}}"><a href="/#/profile">Min profil</a></li>
     </ul>
     <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Hvem leter du etter?">
+      <input type="text" class="form-control col-lg-8" ng-controller="HeaderctrlCtrl" ng-model="searchBox" placeholder="Hvem leter du etter?">
     </form>
   </div>
 </div>
@@ -91,6 +91,7 @@
         <script src="scripts/controllers/header.js"></script>
         <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/services/user.js"></script>
+        <script src="scripts/controllers/user.js"></script>
         <!-- endbuild -->
         <script src="scripts/modules/straphelper.js"></script>
         <script src="scripts/modules/straphelper2.js"></script>

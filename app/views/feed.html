@@ -3,21 +3,21 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-sm-3">
   	<div class="form-group">
   <label class="control-label" for="focusedInput">Hva skal vi diskutere?</label>
-  <input class="form-control" id="focusedInput" type="text" placeholder="Katter, matte 1, livet..." ng-model="datepost.message">
+  <input class="form-control" id="focusedInput" type="text" placeholder="Tema" ng-model="datepost.message">
 </div>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-sm-3">
   	<div class="form-group">
   <label class="control-label" for="focusedInput">Hvor skal vi?</label>
   <input class="form-control" id="focusedInput" type="text" placeholder="Sted" ng-model="datepost.location">
 </div>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-sm-3">
   <form name="timepickerForm" role="form">
 	  	<div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
 	    <label class="control-label">Når skal vi?</label>
@@ -26,27 +26,27 @@
   </form>
   </div>
 
-  <div class="col-md-3"><button ng-click="addPost()" class="btn btn-primary btn-lg" style="margin-top: 15px">Send inn</a>
+  <div class="col-sm-3"><button ng-click="addPost()" class="btn btn-primary btn-lg" style="margin-top: 15px">Send inn</a>
 </div>
 
 </div>
 	  </div>
 	</div>
-
-<div ng-repeat="datepost in dateposts">
+<div ng-repeat="datepost in dateposts | filter:search">
 	<div class="panel panel-default">
   <div class="panel-body">
   	<div class="row">
-	  <div class="col-md-4"><img ng-src="{{facebookProfilePic(datepost.poster.facebookid)}}"></div>
-	  <div class="col-md-3">{{datepost.message}}</div>
-	  <div class="col-md-3">{{datepost.location}}</div>
-	  <div class="col-md-2">.col-md-1</div>
+	  <div class="col-sm-4"><a ng-href="{{ '/#/user/' + datepost.poster._id }}">
+	  <img ng-src="{{facebookProfilePic(datepost.poster.facebookid)}}"></a></div>
+	  <div class="col-sm-3">{{datepost.message}}</div>
+	  <div class="col-sm-3">{{datepost.location}}</div>
+	  <div class="col-sm-2">.col-md-1</div>
 	</div>
 	<div class="row">
-	<div class="col-md-1"></div>
-	<div class="col-md-4"><h5>{{datepost.poster.firstname}}</h5></div>
-	<div class="col-md-4"></div>
-	<div class="col-md-3"></div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-4"><h5>{{datepost.poster.firstname}}</h5></div>
+	<div class="col-sm-4"></div>
+	<div class="col-sm-3"></div>
 	</div>
   </div>
 </div>
