@@ -25,6 +25,13 @@ angular.module('kaffeAppApp')
           deferred.resolve(response);
         })
       return deferred.promise;
+      },
+      getFacebookId : function(userid){
+        var deferred = $q.defer();
+        $http.get(apibase + 'user/' + userid).success(function(fbId){
+          deferred.resolve(fbId)
+        })
+        return deferred.promise;
       }
     };
   });

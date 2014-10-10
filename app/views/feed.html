@@ -36,6 +36,18 @@
 <div ng-repeat="datepost in dateposts">
 	<div class="panel panel-default">
   <div class="panel-body">
+  	<div class="row">
+	  <div class="col-md-4"><img ng-src="{{facebookProfilePic(datepost.poster.facebookid)}}"></div>
+	  <div class="col-md-3">{{datepost.message}}</div>
+	  <div class="col-md-3">{{datepost.location}}</div>
+	  <div class="col-md-2">.col-md-1</div>
+	</div>
+	<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-4"><h5>{{datepost.poster.firstname}}</h5></div>
+	<div class="col-md-4"></div>
+	<div class="col-md-3"></div>
+	</div>
   </div>
 </div>
 </div>	

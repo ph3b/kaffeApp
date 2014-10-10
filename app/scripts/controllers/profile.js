@@ -20,7 +20,7 @@ angular.module('kaffeAppApp')
     })
 
     $scope.setNewBio = function(){
-    	if($scope.newbio === ""){
+    	if($scope.newbio === "" || $scope.newbio === undefined){
     		return;
     	}
     	$scope.user.bio = $scope.newbio;
@@ -30,7 +30,6 @@ angular.module('kaffeAppApp')
     }
     $scope.changeBio = function(){
     	$scope.tempBio = $scope.user.bio;
-    	$scope.user.bio = "";
     	$scope.hasBio = false;
     }
  

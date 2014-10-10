@@ -8,16 +8,20 @@
  * Controller of the kaffeAppApp
  */
 angular.module('kaffeAppApp')
-  .controller('FeedCtrl', function ($scope, test, datepost) {
+  .controller('FeedCtrl', function ($scope, test, datepost, user, $q) {
     
     datepost.getDatePosts().then(function(dateposts){
     	$scope.dateposts = dateposts;
-    	console.log($scope.dateposts)
     });
 
     $scope.addPost = function(){
     	datepost.addNewDatePost($scope.datepost).then(function(response){
-    		console.log(response)
+    		datepost.getDatePosts().then(function(dateposts){
+    			$scope.dateposts = dateposts;    		
+    		});
     	});
+    }
+    $scope.facebookProfilePic = function(userid){
+    	return 'https://graph.facebook.com/' + userid + '/picture?height=60'
     }
   });
