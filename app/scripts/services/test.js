@@ -17,11 +17,7 @@ angular.module('kaffeAppApp')
     // Public API here
     return {
       getUsers: function () {
-        var deferred = $q.defer();
-        $http.get('http://localhost:3000/api/users').success(function(response){
-          deferred.resolve(response);
-        })
-      return deferred.promise;
+        return;
       }
     };
   });

@@ -46,7 +46,6 @@ angular
 
         $http.get(apibase + 'isloggedin').success(function(user){
           if(user == '0'){
-            console.log('logget inn')
             $timeout(deferred.resolve, 0);
           }
           else {

@@ -52,7 +52,6 @@ angular.module('kaffeAppApp')
     	if(d.getMinutes() > 10){
     		minutes = d.getMinutes();
     	}
-
     	return hour + ':' + minutes;
     }
 
