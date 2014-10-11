@@ -8,7 +8,7 @@
  * Controller of the kaffeAppApp
  */
 angular.module('kaffeAppApp')
-  .controller('ProfileCtrl', function ($scope, user) {
+  .controller('ProfileCtrl', function ($scope, user, datepost) {
     user.getCurrentUser().then(function(user){
     	$scope.facebookPhoto = 'https://graph.facebook.com/' + user.facebookid + '/picture?height=72';
     	$scope.user = user;
@@ -18,6 +18,9 @@ angular.module('kaffeAppApp')
     		$scope.hasBio = true;
     	}
     })
+    user.getMyDatePost().then(function(response){
+        $scope.activePost = response; // TODO
+    });
 
     $scope.setNewBio = function(){
     	if($scope.newbio === "" || $scope.newbio === undefined){
@@ -32,10 +35,33 @@ angular.module('kaffeAppApp')
     	$scope.newbio = $scope.user.bio;
     	$scope.hasBio = false;
     }
-    user.getMyDatePost().then(function(response){
-        console.log(response)
-        $scope.activePost = response; // TODO
-    })
- 
+    $scope.timeOffset = function(time){
+        var d = new Date(time)
+        var hour = "";
+        var minutes = "";
+        if(d.getHours() < 10){
+            hour = '0' + d.getHours();
+        }
+        if(d.getHours() > 10){
+            hour = d.getHours();
+        }
+        if(d.getMinutes() < 10){
+            minutes = '0' + d.getMinutes();
+        }
+        if(d.getMinutes() > 10){
+            minutes = d.getMinutes();
+        }
+        return hour + ':' + minutes;
+    };
+    $scope.facebookProfilePic = function(userid){
+        return 'https://graph.facebook.com/' + userid + '/picture?height=120'
+    }
+    $scope.deleteDatePost = function(id){
+        datepost.deleteDatePost(id).then(function(response){
+            user.getMyDatePost().then(function(response){
+                $scope.activePost = response; // TODO
+            });
+        })
+    }
 
   });

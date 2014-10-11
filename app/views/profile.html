@@ -21,23 +21,51 @@
       </div>
     </div>
     </div>
-
-
 </form>
     </div>
 </div>
   </div>
 </div>
+<div ng-show="activePost">
+<h5> Du har en aktiv datepost </h5>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+        <div class="col-sm-3">
+        <div class="row"></div>
+          <img ng-src="{{facebookPhoto}}">
+        </div>
 
-<div class="panel panel-default" ng-show="activePost">
-  <div class="panel-body">
-    <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-8">
+        <div class="col-sm-3">
+          <div class="row verticalAlign"><h5>Snakketags</h5></div>
+          <div class="row">
+          {{activePost.message}}</div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="row verticalAlign"><h5>Sted</h5></div>
+          <div class="row">
+          {{activePost.location}}</div>
+          </div>
+
+        <div class="col-sm-2">
+          <div class="row verticalAlign"><h5>Tid</h5></div>
+          <div class="row">{{timeOffset(activePost.datetime)}}</div>
+        </div>
+
+        <div class="col-sm-2 verticalAlign"><h5></h5>
+          <button class="btn btn-danger" style="margin-top: 10px"ng-click="deleteDatePost(activePost._id)">Slett</button>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-3"></div>
+      </div>
       </div>
     </div>
     </div>
-
+</div>  
 
 </form>
     </div>

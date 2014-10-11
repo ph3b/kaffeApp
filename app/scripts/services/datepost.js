@@ -20,7 +20,6 @@ angular.module('kaffeAppApp')
         var deferred = $q.defer();
         $http.post(apibase + 'dateposts', datepost).success(function(response){
           deferred.resolve(response);
-          console.log(response)
         })
         return deferred.promise;
       },
@@ -31,5 +30,12 @@ angular.module('kaffeAppApp')
         })
       return deferred.promise;
       },
+      deleteDatePost : function(datepostid){
+        var deferred = $q.defer();
+        $http.delete(apibase + 'datepost/' + datepostid).success(function(response){
+          deferred.resolve(response);
+        })
+        return deferred.promise; 
+      }
     };
   });
