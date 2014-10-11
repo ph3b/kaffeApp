@@ -39,6 +39,17 @@ angular.module('kaffeAppApp')
           deferred.resolve(user)
         })
         return deferred.promise;
+      },
+      getMyDatePost: function(){
+        var deferred = $q.defer();
+        $http.get(apibase + 'activepost').success(function(reponse){
+          if(reponse !== '0'){
+            deferred.resolve(reponse);
+          } else {
+            deferred.resolve(false);
+          }
+        })
+        return deferred.promise;
       }
     };
   });

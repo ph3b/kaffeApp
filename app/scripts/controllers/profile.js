@@ -32,6 +32,10 @@ angular.module('kaffeAppApp')
     	$scope.newbio = $scope.user.bio;
     	$scope.hasBio = false;
     }
+    user.getMyDatePost().then(function(response){
+        console.log(response)
+        $scope.activePost = response; // TODO
+    })
  
 
   });
