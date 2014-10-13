@@ -39,7 +39,7 @@
 	  <div class="col-sm-4">
 	  <div class="row"></div>
 	 	<a ng-href="{{ '/#/user/' + datepost.poster._id }}">
-	  	<img ng-src="{{facebookProfilePic(datepost.poster.facebookid)}}"></a>
+	  	<img width="180" ng-src="{{facebookProfilePic(datepost.poster.facebookid)}}"></a>
 	  </div>
 
 	  <div class="col-sm-3">
@@ -63,7 +63,10 @@
 	<div class="col-sm-1"></div>
 	<div class="col-sm-4"><h5>{{datepost.poster.firstname}}</h5></div>
 	<div class="col-sm-4"></div>
-	<div class="col-sm-3"></div>
+	<div class="col-sm-3">
+		<button ng-show="showRequestButton(datepost.poster._id)" ng-click="sendRequest(datepost._id)" class="btn btn-success">Bli med</button>
+
+	</div>
 	</div>
   </div>
 </div>

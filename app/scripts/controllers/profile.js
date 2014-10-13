@@ -20,6 +20,7 @@ angular.module('kaffeAppApp')
     })
     user.getMyDatePost().then(function(response){
         $scope.activePost = response; // TODO
+        console.log($scope.activePost)
     });
 
     $scope.setNewBio = function(){
@@ -42,7 +43,7 @@ angular.module('kaffeAppApp')
         if(d.getHours() < 10){
             hour = '0' + d.getHours();
         }
-        if(d.getHours() > 10){
+        if(d.getHours() >= 10){
             hour = d.getHours();
         }
         if(d.getMinutes() < 10){
@@ -61,6 +62,11 @@ angular.module('kaffeAppApp')
             user.getMyDatePost().then(function(response){
                 $scope.activePost = response; // TODO
             });
+        })
+    };
+    $scope.acceptRequest = function(requserid, activepostid){
+        datepost.acceptRequest(requserid, activepostid).then(function(response){
+            console.log(response)
         })
     }
 

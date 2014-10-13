@@ -36,6 +36,21 @@ angular.module('kaffeAppApp')
           deferred.resolve(response);
         })
         return deferred.promise; 
+      },
+      sendRequestTo : function(datepostid){
+        var deferred = $q.defer();
+        $http.post(apibase + 'datepost/' + datepostid).success(function(response){
+          deferred.resolve(response);
+        })
+        return deferred.promise;
+      },
+      acceptRequest : function(requserid, datepostid){
+        var deferred = $q.defer();
+        $http.post(apibase + 'date/' + datepostid +'/'+requserid).success(function(response){
+          console.log(response)
+          deferred.resolve(response);
+        })
+        return deferred.promise;
       }
     };
   });
