@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row"></div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <img width="200" ng-src="{{UserFactory.getFacebookPic(guest.facebookid)}}" class="img-rounded">
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2"><h5>{{ guest.firstname }}</h5></div>
+                    <div class="col-sm-6"></div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <img width="200" ng-src="{{UserFactory.getFacebookPic(host.facebookid)}}" class="img-rounded">
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2"><h5>{{ host.firstname }} </h5></div>
+                    <div class="col-sm-6"></div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-5"><h5>Møtes på {{date.location}}</h5></div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-7"><h5>Møtes om {{timeLeftToDate(date.datetime)}}</h5></div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <button ng-click="endDate(date._id)" class="btn btn-danger">Daten er over</button>
+    </div>
+</div>
+
+
+
+

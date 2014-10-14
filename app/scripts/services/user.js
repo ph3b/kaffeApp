@@ -8,9 +8,7 @@
  * Factory in the kaffeAppApp.
  */
 angular.module('kaffeAppApp')
-  .factory('user', function ($http, $q) {
-    var apibase = 'http://localhost:3000/api/';
-
+  .factory('user', function ($http, $q, apibase) {
     return {
       getCurrentUser: function () {
         var deferred = $q.defer();

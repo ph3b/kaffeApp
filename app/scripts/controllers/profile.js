@@ -8,7 +8,7 @@
  * Controller of the kaffeAppApp
  */
 angular.module('kaffeAppApp')
-  .controller('ProfileCtrl', function ($scope, user, datepost) {
+  .controller('ProfileCtrl', function ($scope, user, datepost, $location) {
     user.getCurrentUser().then(function(user){
     	$scope.facebookPhoto = 'https://graph.facebook.com/' + user.facebookid + '/picture?height=72';
     	$scope.user = user;

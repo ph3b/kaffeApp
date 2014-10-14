@@ -8,13 +8,7 @@
  * Factory in the kaffeAppApp.
  */
 angular.module('kaffeAppApp')
-  .factory('datepost', function ($http, $q) {
-    // Service logic
-    // ...
-
-    var apibase = 'http://localhost:3000/api/'
-
-    // Public API here
+  .factory('datepost', function ($http, $q, apibase) {
     return {
       addNewDatePost: function (datepost) {
         var deferred = $q.defer();
