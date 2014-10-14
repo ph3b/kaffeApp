@@ -42,7 +42,7 @@ angular.module('kaffeAppApp')
       },
       getMyDatePost: function(){
         var deferred = $q.defer();
-        $http.get(apibase + 'activepost').success(function(reponse){
+        $http.get(apibase + 'mydatepost').success(function(reponse){
           if(reponse !== '0'){
             deferred.resolve(reponse);
           } else {
