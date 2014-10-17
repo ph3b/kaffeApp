@@ -9,4 +9,5 @@
  */
 angular.module('kaffeAppApp')
   .controller('MainCtrl', function ($scope) {
+
   });

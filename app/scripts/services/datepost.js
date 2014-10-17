@@ -15,7 +15,7 @@ angular.module('kaffeAppApp')
         $http.post(apibase + 'dateposts', datepost).success(function(response){
           deferred.resolve(response);
           console.log(response)
-        })
+        });
         return deferred.promise;
       },
       getDatePosts: function(){
@@ -42,7 +42,6 @@ angular.module('kaffeAppApp')
       acceptRequest : function(requserid, datepostid){
         var deferred = $q.defer();
         $http.post(apibase + 'date/' + datepostid +'/'+requserid).success(function(response){
-          console.log(response)
           deferred.resolve(response);
         })
         return deferred.promise;

@@ -29,6 +29,7 @@ angular.module('kaffeAppApp')
           var deferred = $q.defer();
           $http.get(apibase + 'date/mydate').success(function(response){
               if(response !== '0'){
+
                   deferred.resolve(response)
               } else {
                   deferred.resolve(false)

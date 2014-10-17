@@ -16,6 +16,7 @@ angular.module('kaffeAppApp')
             $scope.host = response.host;
             $scope.guest = response.guest;
         });
+        // Denne er helt feil. Må regne ut sekunder fra midnatt og subtrahere.
         $scope.timeLeftToDate = function(time){
             var now = new Date();
             var dateTime = new Date(time);
@@ -33,7 +34,6 @@ angular.module('kaffeAppApp')
         };
         $scope.endDate = function(dateid){
             dateFactory.endDate(dateid).then(function(response){
-                console.log(response)
             })
         }
 

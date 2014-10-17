@@ -21,6 +21,7 @@ var KaffeApp = angular.module('kaffeAppApp', [
 ])
     .config(function ($routeProvider, $httpProvider) {
         $httpProvider.defaults.withCredentials = true;
+        //$httpProvider.defaults.cache = true;
 
         var apibase = 'http://localhost:3000/api/';
 
