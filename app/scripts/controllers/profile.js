@@ -9,9 +9,15 @@
  */
 angular.module('kaffeAppApp')
   .controller('ProfileCtrl', function ($scope, user, datepost, $location) {
+    $scope.hasBio = true;
+    $scope.profileIsLoaded = false;
+    $scope.showSpinner = true;
     user.getCurrentUser().then(function(user){
+        $scope.profileIsLoaded = true;
     	$scope.facebookPhoto = 'https://graph.facebook.com/' + user.facebookid + '/picture?height=72';
     	$scope.user = user;
+
+        $scope.showSpinner = false;
     	if($scope.user.bio === null || $scope.user.bio === ""){
     		$scope.hasBio = false;
     	} else {
@@ -20,6 +26,7 @@ angular.module('kaffeAppApp')
     })
     user.getMyDatePost().then(function(response){
         $scope.activePost = response; // TODO
+
     });
 
     $scope.setNewBio = function(){

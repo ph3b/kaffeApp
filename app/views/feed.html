@@ -1,3 +1,7 @@
+<span ng-show="showSpinner" us-spinner>
+
+</span>
+
 <div class="row" ng-show="showForm">
     <p><h4>Lag en date</h4>
 
@@ -37,7 +41,7 @@
                                 <label class="control-label">Når skal vi?</label>
                                 <input type="text" placeholder="12:00" class="form-control" size="5"
                                        ng-model="datepost.datetime" data-time-format="HH:mm" data-time-type="number"
-                                       data-min-time="nowTime" name="time2" bs-timepicker required>
+                                       data-min-time="now" name="time2" bs-timepicker required>
                             </div>
                         </form>
                         <p ng-show="postForm.time2.$invalid && !postForm.time2.$pristine" class="help-block">Må være et
@@ -47,14 +51,16 @@
                     <div class="col-sm-3">
                         <button type="submit"
                                 ng-class="{ 'btn btn-success' : postForm.$valid, 'btn btn-primary' : postForm.$invalid}"
-                                style="margin-top: 15px"
-                                ng-disabled="postForm.$invalid">Send</a> </button>
+                                style="margin-top: 20px"
+                                ng-disabled="postForm.$invalid">Send</button>
                     </div>
 
                 </div>
             </form>
         </div>
     </div>
+</div>
+
 </div>
 
 <div ng-repeat="datepost in dateposts | orderBy: 'datetime' | filter: search">

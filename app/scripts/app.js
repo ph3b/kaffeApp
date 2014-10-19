@@ -17,7 +17,8 @@ var KaffeApp = angular.module('kaffeAppApp', [
     'ngTouch',
     'mgcrea.ngStrap',
     'mgcrea.ngStrap.helpers.dimensions',
-    'mgcrea.ngStrap.helpers.dateParser'
+    'mgcrea.ngStrap.helpers.dateParser',
+    'angularSpinner'
 ])
     .config(function ($routeProvider, $httpProvider) {
         $httpProvider.defaults.withCredentials = true;

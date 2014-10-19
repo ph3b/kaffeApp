@@ -1,4 +1,7 @@
-<div class="panel panel-default">
+
+
+
+<div class="panel panel-default" ng-show="profileIsLoaded">
   <div class="panel-body">
     <div class="row">
     <div class="col-sm-4"><img width="220" ng-src="{{facebookPhoto}}" class="img-rounded"></div>
@@ -79,10 +82,5 @@
       </div>
     </div>
     </div>
-</div>  
-
-</form>
-    </div>
 </div>
-  </div>
-</div>
+<span ng-show="showSpinner" us-spinner>
