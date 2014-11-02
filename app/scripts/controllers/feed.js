@@ -11,11 +11,13 @@ angular.module('kaffeAppApp')
     .controller('FeedCtrl', function ($scope, datepost, user, $q) {
         $scope.showButton = true;
         $scope.showSpinner = true;
+        $scope.showForm = false;
+
         var getPosts = function () {
             datepost.getDatePosts().then(function (dateposts) {
-                $scope.dateposts = dateposts;
-                $scope.showSpinner = false;
                 user.getMyDatePost().then(function (datepost) {
+                    $scope.showSpinner = false;
+                    $scope.dateposts = dateposts;
                     if (datepost == '0') {
                         $scope.showForm = true;
                     } else {
@@ -25,7 +27,7 @@ angular.module('kaffeAppApp')
             });
         };
         getPosts();
-        user.getCurrentUser().then(function (user) {
+        user.getCurrentUser().then(function(user) {
             $scope.user = user;
 
         });
@@ -62,18 +64,32 @@ angular.module('kaffeAppApp')
             if (d.getMinutes() < 10) {
                 minutes = '0' + d.getMinutes();
             }
-            if (d.getMinutes() > 10) {
+            if (d.getMinutes() >= 10) {
                 minutes = d.getMinutes();
             }
             return hour + ':' + minutes;
         };
-        $scope.showRequestButton = function (posterid) {
-            return !(posterid === $scope.user._id)
+        $scope.showRequestButton = function (posterid, reqHasBeenSent) {
+            if($scope.user){
+                return (!(posterid === $scope.user._id));
+            }
+
         };
-        $scope.sendRequest = function (datepostid) {
+        $scope.sendRequest = function (datepostid, _datepost) {
+            _datepost.reqHasBeenSent = true;
             datepost.sendRequestTo(datepostid).then(function (response) {
-            })
+            });
+
         };
+        $scope.userHasSentReq = function(_datepost){
+
+            if($scope.user && _datepost.poster._id != $scope.user.id && _datepost.reqHasBeenSent){
+                return true;
+            } else {
+                return false
+            }
+        }
+
         $scope.now = function(){
             return new Date();
         }

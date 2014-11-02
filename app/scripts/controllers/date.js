@@ -9,12 +9,14 @@
  */
 angular.module('kaffeAppApp')
   .controller('DateCtrl', function ($scope, dateFactory, UserFactory, $location) {
+        $scope.showSpinner = true;
         $scope.UserFactory = UserFactory;
 
         dateFactory.getMyDate().then(function(response){
             $scope.date = response;
             $scope.host = response.host;
             $scope.guest = response.guest;
+            $scope.showSpinner = false;
         });
         // Denne er helt feil. Må regne ut sekunder fra midnatt og subtrahere.
         $scope.timeLeftToDate = function(time){

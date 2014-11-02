@@ -7,6 +7,8 @@
  * # user
  * Factory in the kaffeAppApp.
  */
+
+// TODO: Rename, refactor
 angular.module('kaffeAppApp')
   .factory('user', function ($http, $q, apibase) {
     return {
@@ -14,7 +16,8 @@ angular.module('kaffeAppApp')
         var deferred = $q.defer();
         $http.get(apibase + 'currentuser').success(function(user){
           deferred.resolve(user);
-        })
+
+        });
         return deferred.promise;
       },
       setNewBio: function(bio){

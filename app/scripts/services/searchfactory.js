@@ -9,5 +9,5 @@
  */
 angular.module('kaffeAppApp')
   .factory('searchFactory', function () {
-        return {text:''};
+        return;
   });

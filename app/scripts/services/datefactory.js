@@ -13,7 +13,7 @@ angular.module('kaffeAppApp')
       getDate: function (dateid) {
             var deferred = $q.defer();
             $http.get(apibase + 'date/' + dateid).success(function(date){
-                console.log(date)
+                console.log(date);
                 deferred.resolve(date);
         });
         return deferred.promise;
@@ -33,7 +33,7 @@ angular.module('kaffeAppApp')
                   deferred.resolve(response)
               } else {
                   deferred.resolve(false)
-              };
+              }
           });
         return deferred.promise;
       }

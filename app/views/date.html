@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" ng-show="!showSpinner">
     <div class="panel-heading">
         <div class="row"></div>
         <div class="row">
@@ -42,7 +42,7 @@
         <button ng-click="endDate(date._id)" class="btn btn-danger">Daten er over</button>
     </div>
 </div>
-
+<span ng-show="showSpinner" us-spinner>
 
 
 

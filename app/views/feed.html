@@ -61,18 +61,15 @@
     </div>
 </div>
 
-</div>
-
-<div ng-repeat="datepost in dateposts | orderBy: 'datetime' | filter: search">
+<div ng-repeat="datepost in dateposts | orderBy: 'datetime'">
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="row"></div>
                     <a ng-href="{{ '/#/user/' + datepost.poster._id }}">
                         <img width="180" ng-src="{{facebookProfilePic(datepost.poster.facebookid)}}"></a>
                 </div>
-
+                <div class="col-sm-4"><h5>{{datepost.poster.firstname}}</h5></div>
                 <div class="col-sm-3">
                     <div class="row verticalAlign"><h5>Snakketags</h5></div>
                     <div class="row">
@@ -91,16 +88,18 @@
                     <div class="row verticalAlign"><h5>Tid</h5></div>
                     <div class="row">{{timeOffset(datepost.datetime)}}</div>
                 </div>
-            </div>
+
             <div class="row">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-4"><h5>{{datepost.poster.firstname}}</h5></div>
+
                 <div class="col-sm-4"></div>
                 <div class="col-sm-3">
-                    <button ng-show="showRequestButton(datepost.poster._id)" ng-click="sendRequest(datepost._id)"
-                            class="btn btn-success">Bli med </button>
+                    <button ng-show="showRequestButton(datepost.poster._id)" ng-click="sendRequest(datepost._id, datepost)"
+                            ng-disabled="userHasSentReq(datepost)" class="btn btn-success">Bli med <span class="glyphicon glyphicon-ok" ng-show="userHasSentReq(datepost)"></span></button>
+
 
                 </div>
+            </div>
             </div>
         </div>
     </div>

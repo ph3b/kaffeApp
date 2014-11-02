@@ -12,10 +12,12 @@ angular.module('kaffeAppApp')
     $scope.hasBio = true;
     $scope.profileIsLoaded = false;
     $scope.showSpinner = true;
+
     user.getCurrentUser().then(function(user){
         $scope.profileIsLoaded = true;
     	$scope.facebookPhoto = 'https://graph.facebook.com/' + user.facebookid + '/picture?height=72';
     	$scope.user = user;
+        console.log($scope.user)
 
         $scope.showSpinner = false;
     	if($scope.user.bio === null || $scope.user.bio === ""){
@@ -55,7 +57,7 @@ angular.module('kaffeAppApp')
         if(d.getMinutes() < 10){
             minutes = '0' + d.getMinutes();
         }
-        if(d.getMinutes() > 10){
+        if(d.getMinutes() >= 10){
             minutes = d.getMinutes();
         }
         return hour + ':' + minutes;
@@ -72,7 +74,7 @@ angular.module('kaffeAppApp')
     };
     $scope.acceptRequest = function(requserid, activepostid){
         datepost.acceptRequest(requserid, activepostid).then(function(response){
-            console.log(response)
+            $location.path('/date')
         })
     }
 
