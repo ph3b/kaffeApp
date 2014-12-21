@@ -11,31 +11,31 @@ angular.module('kaffeAppApp')
   .factory('dateFactory', function (apibase, $http, $q) {
     return {
       getDate: function (dateid) {
-            var deferred = $q.defer();
+            var defer = $q.defer();
             $http.get(apibase + 'date/' + dateid).success(function(date){
                 console.log(date);
-                deferred.resolve(date);
+                defer.resolve(date);
         });
-        return deferred.promise;
+        return defer.promise;
       },
       endDate: function(dateid){
-          var deferred = $q.defer();
+          var defer = $q.defer();
           $http.put(apibase + 'date/' + dateid).success(function(response){
-              deferred.resolve(response);
+              defer.resolve(response);
           });
-        return deferred.promise;
+        return defer.promise;
       },
       getMyDate : function(){
-          var deferred = $q.defer();
+          var defer = $q.defer();
           $http.get(apibase + 'date/mydate').success(function(response){
               if(response !== '0'){
 
-                  deferred.resolve(response)
+                  defer.resolve(response)
               } else {
-                  deferred.resolve(false)
+                  defer.resolve(false)
               }
           });
-        return deferred.promise;
+        return defer.promise;
       }
     };
   });
