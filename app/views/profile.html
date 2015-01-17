@@ -17,14 +17,11 @@
         <span class="help-block">Skriv litt om deg selv. Hva liker du? Hva synes du er spennende?</span>
       </div>
     </div>
-    </form>
       <div class="col-lg-10">
         <button type="submit" class="btn btn-primary" ng-click="setNewBio()">Lagre</button>
       </div>
       </div>
-    </div>
-    </div>
-</form>
+  </form>
     </div>
 </div>
   </div>
@@ -71,7 +68,7 @@
       <div class="col-sm-3"><img width="150" ng-src="{{facebookProfilePic(requester.facebookid)}}"></div>
       <div class="col-sm-2 verticalAlign">{{requester.firstname}}</div>
       <div class="col-sm-4 verticalAlign">{{requester.bio}}</div>
-      <div class="col-sm-2">      
+      <div class="col-sm-2">
       <div class="col-sm-4">
         <button class="btn btn-success" ng-click="acceptRequest(requester._id, activePost._id)">Godkjenn</button>
         {{}}

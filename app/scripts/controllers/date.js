@@ -24,6 +24,8 @@ angular.module('kaffeAppApp')
             var dateTime = new Date(time);
             var minutesToDate = dateTime.getMinutes() - now.getMinutes();
             var hoursToDate = dateTime.getHours() - now.getHours();
+
+            return moment(time).fromNow(true)
             if(hoursToDate == 0){
                 return minutesToDate + ' minutter.';
             }
@@ -36,6 +38,7 @@ angular.module('kaffeAppApp')
         };
         $scope.endDate = function(dateid){
             dateFactory.endDate(dateid).then(function(response){
+              $location.path('/')
             })
         }
 

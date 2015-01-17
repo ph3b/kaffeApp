@@ -8,7 +8,7 @@
  * Controller of the kaffeAppApp
  */
 angular.module('kaffeAppApp')
-    .controller('FeedCtrl', function ($scope, datepost, user, $q) {
+    .controller('FeedCtrl', function ($scope, datepost, user, $q, $timeout) {
         $scope.showButton = true;
         $scope.showSpinner = true;
         $scope.showForm = false;
@@ -18,6 +18,7 @@ angular.module('kaffeAppApp')
                 user.getMyDatePost().then(function (datepost) {
                     $scope.showSpinner = false;
                     $scope.dateposts = dateposts;
+                    console.log(dateposts)
                     if (datepost == '0') {
                         $scope.showForm = true;
                     } else {
@@ -69,15 +70,16 @@ angular.module('kaffeAppApp')
             }
             return hour + ':' + minutes;
         };
-        $scope.showRequestButton = function (posterid, reqHasBeenSent) {
+        $scope.showRequestButton = function (posterid) {
             if($scope.user){
                 return (!(posterid === $scope.user._id));
             }
 
         };
-        $scope.sendRequest = function (datepostid, _datepost) {
+        $scope.sendRequest = function (_datepost) {
             _datepost.reqHasBeenSent = true;
-            datepost.sendRequestTo(datepostid).then(function (response) {
+            console.log(_datepost)
+            datepost.sendRequestTo(_datepost._id).then(function (response) {
             });
 
         };
@@ -93,4 +95,5 @@ angular.module('kaffeAppApp')
         $scope.now = function(){
             return new Date();
         }
+
     });

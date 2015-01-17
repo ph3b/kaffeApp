@@ -18,7 +18,8 @@ var KaffeApp = angular.module('kaffeAppApp', [
     'mgcrea.ngStrap',
     'mgcrea.ngStrap.helpers.dimensions',
     'mgcrea.ngStrap.helpers.dateParser',
-    'angularSpinner'
+    'angularSpinner',
+    'angularMoment'
 ])
     .config(function ($routeProvider, $httpProvider) {
         $httpProvider.defaults.withCredentials = true;
@@ -99,3 +100,6 @@ var KaffeApp = angular.module('kaffeAppApp', [
             });
     });
 KaffeApp.constant('apibase', 'http://localhost:3000/api/');
+KaffeApp.run(function(amMoment){
+  amMoment.changeLocale('nb');
+});
